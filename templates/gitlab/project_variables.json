@@ -1,0 +1,66 @@
+[
+{
+  "variable_type": "env_var",
+  "key": "AWS_ACCESS_KEY_ID",
+  "value": "${access_key}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "AWS_SECRET_ACCESS_KEY",
+  "value": "${secret_key}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "AWS_DEFAULT_REGION",
+  "value": "${aws_region}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "ECS_CLUSTER",
+  "value": "${ecs_cluster_name}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "ECS_SERVICE",
+  "value": "${ecs_service_name}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "DOCKER_REGISTRY",
+  "value": "${docker_registry}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "env_var",
+  "key": "DOCKER_TAG",
+  "value": "${task_tag}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+},
+{
+  "variable_type": "file",
+  "key": "DOCKER_ENV_VARIABLES",
+  "value": "NEXT_PUBLIC_API_HOST=https://${app_domain_name}",
+  "protected": false,
+  "masked": false,
+  "environment_scope": "${env_scope}"
+}
+]
