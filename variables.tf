@@ -240,3 +240,13 @@ variable "other_secondary_service_dns_names" {
   type = list(string)
 }
 
+variable "healthcheck" {
+  type = object({
+    command     = list(string)
+    retries     = number
+    timeout     = number
+    interval    = number
+    startPeriod = number
+  })
+  default = null
+}

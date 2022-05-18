@@ -52,6 +52,8 @@ module "container" {
 
   environment_files = var.environment_files
 
+  healthcheck = var.healthcheck
+
 }
 
 resource "aws_ecs_task_definition" "this" {
@@ -63,6 +65,10 @@ resource "aws_ecs_task_definition" "this" {
   task_role_arn            = var.ecs_role_arn
 
   container_definitions = module.container.json_map_encoded_list
+  
+  lifecycle {
+    create_before_destroy = true
+  }
 
   dynamic "volume" {
     for_each = length(var.efs_volume_name) > 0 ? [1] : []
