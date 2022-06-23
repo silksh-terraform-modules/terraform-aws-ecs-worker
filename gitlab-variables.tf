@@ -8,7 +8,7 @@ resource "local_file" "this-gitlab-environment" {
       task_tag                  = var.docker_image_tag
       app_domain_name           = var.service_dns_name
       aws_region                = var.aws_region
-      env_variable_s3_bucket    = var.environment_files[0].value
+      env_variable_s3_bucket    = var.environment_bucket_id
       ecs_cluster_name          = var.cluster_name
       ecs_service_name          = aws_ecs_service.this.name
 
