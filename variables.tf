@@ -86,6 +86,7 @@ variable "environment_files" {
 variable "environment_bucket_id" {
   type = string
   description = "environmental s3 bucket ID - using for create gitlab variables template"
+  default = ""
 }
 
 variable "mount_points" {
