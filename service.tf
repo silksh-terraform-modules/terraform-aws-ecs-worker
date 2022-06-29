@@ -4,7 +4,6 @@ resource "aws_ecs_service" "this" {
     deployment_minimum_healthy_percent = var.deploy_min_percent
     desired_count                      = var.desired_count
     enable_ecs_managed_tags            = false
-    health_check_grace_period_seconds  = var.healt_check_grace_period
     launch_type                        = var.launch_type
     name                               = var.service_name
     #propagate_tags                     = "NONE"
