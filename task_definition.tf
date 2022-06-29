@@ -1,29 +1,8 @@
-locals {
-  port_mappings = length(var.container_port_secondary) > 0 ? [ 
-    {
-      containerPort = var.container_port
-      hostPort      = var.host_port
-      protocol      = var.service_protocol
-    },
-    {
-      containerPort = var.container_port_secondary
-      hostPort      = var.host_port
-      protocol      = var.service_protocol
-    }
-  ]:[
-    {
-      containerPort = var.container_port
-      hostPort      = var.host_port
-      protocol      = var.service_protocol
-    }
-  ]
-  
-}
-
 module "container" {
   source  = "cloudposse/ecs-container-definition/aws"
   version = "0.58.1"
   
+  command = var.command
   container_name  = var.service_name
   container_image = "${var.ecr_repository_url}:${var.docker_image_tag}"
 
@@ -42,8 +21,6 @@ module "container" {
     }
   }
   
-  port_mappings = local.port_mappings
-
   map_secrets = var.ssm_variables
 
   map_environment = var.task_variables

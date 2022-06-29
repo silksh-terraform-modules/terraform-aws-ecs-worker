@@ -104,18 +104,17 @@ variable "efs_access_point_id" {
   default = ""
 }
 
-
 variable "cluster_id" {
   default = ""
   description = "cluster ID"
 }
 
 variable "deploy_max_percent" {
-  default = 200
+  default = 100
 }
 
 variable "deploy_min_percent" {
-  default = 100
+  default = 0
 }
 
 variable "desired_count" {
@@ -131,35 +130,7 @@ variable "launch_type" {
   default = "EC2"
 }
 
-variable "zone_id" {
-  default = ""
-}
-
-variable "zone_id_secondary" {
-  default = ""
-}
-
-variable "service_dns_name" {
-  default = ""
-}
-
-variable "service_dns_name_secondary" {
-  default = ""
-}
-
-variable "lb_dns_name" {
-  default = ""
-}
-
 variable "lb_dns_name_secondary" {
-  default = ""
-}
-
-variable "lb_zone_id" {
-  default = ""
-}
-
-variable "lb_zone_id_secondary" {
   default = ""
 }
 
@@ -167,37 +138,6 @@ variable "vpc_id" {
   default = ""
 }
 
-variable "deregistration_delay" {
-  default = 60
-}
-
-variable "target_group_healthy_threshold" {
-  default = 3
-}
-
-variable "target_group_unhealthy_threshold" {
-  default = 2
-}
-
-variable "target_group_health_interval" {
-  default = 10
-}
-
-variable "target_group_health_matcher" {
-  default = "200,302"
-}
-
-variable "target_group_health_path" {
-  default = "/"
-}
-
-variable "target_group_health_port" {
-  default = "traffic-port"
-}
-
-variable "target_group_health_timeout" {
-  default = 5
-}
 
 variable "lb_listener_arn" {
   default = ""
@@ -209,14 +149,6 @@ variable "lb_listener_arn_secondary" {
 
 variable "stickiness_cookie_duration" {
   default = 86400
-}
-
-variable "stickiness_enabled" {
-  default = false
-}
-
-variable "stickiness_type" {
-  default = "lb_cookie"
 }
 
 variable "gitlab_branch" {
@@ -235,16 +167,6 @@ variable "cluster_name" {
   default = ""
 }
 
-variable "other_service_dns_names" {
-  default = []
-  type = list(string)
-}
-
-variable "other_secondary_service_dns_names" {
-  default = []
-  type = list(string)
-}
-
 variable "healthcheck" {
   type = object({
     command     = list(string)
@@ -254,4 +176,10 @@ variable "healthcheck" {
     startPeriod = number
   })
   default = null
+}
+
+variable "command" {
+  type        = list(string)
+  description = "The command that is passed to the container"
+  default     = null
 }
