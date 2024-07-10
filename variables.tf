@@ -184,3 +184,8 @@ variable "command" {
   description = "The command that is passed to the container"
   default     = null
 }
+
+variable "enable_execute_command" {
+  default = false
+  description = "enable or not ecs exec"
+}
